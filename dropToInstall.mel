@@ -1,0 +1,1 @@
+scriptToShelf "QST" "from importlib import reload\nimport QSTFuncs\nreload(QSTFuncs)\nimport QST_UI\nreload(QST_UI)\nQST_UI.create_qst_ui()" "0";
