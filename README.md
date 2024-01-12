@@ -1,7 +1,7 @@
 # QuickSymmetryTool
 
 
-This is a quick symmetry tool for maya, using maya.OpenMaya and maya.cmds
+This is a quick symmetry tool for maya, using `maya.OpenMaya` and `maya.cmds`.
 
 
 ## How to install
@@ -13,22 +13,22 @@ Make sure you put `QSTFuncs.py` and `QST_UI.py` under `MAYA_APP_DIR\scripts`, fo
 C:\Users\Otaku\Documents\maya\scripts
 ```
 
-Then drag and drop the `dropToInstall.mel` into the maya viewport, you should have the button on your shelf.
+Then drag and drop the `dropToInstall.mel` into the Maya viewport, you should have the button on your shelf.
 
 
 ## How to use
 
 
-Select the points in the middle of the model. Reset them.
+Select the points in the middle of the model. Reset them with button. ***This command is NOT Undoable!***. Backup your model.
 
 
-Select one edge in the middle. Enable symmetry mode.
+Select one edge in the middle. Enable symmetry mode with button.
 
 
-Select the area. (Highlighted section will be reserve)
+Select the area with button. (***Highlighted*** section will be preserved)
 
 
-Click execute.
+Click execute. Done!
 
 
 Tutorial coming soon...
