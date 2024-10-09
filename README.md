@@ -1,6 +1,6 @@
 # QuickSymmetryTool
 
-![](https://imgur.com/QqT3eug)
+![](https://i.imgur.com/QqT3eug.png)
 
 This is a quick symmetry tool for maya, using `maya.cmds`.
 
@@ -16,6 +16,6 @@ Then drag and drop the `dropToInstall.mel` into the Maya viewport, you should ha
 
 ## How to use
 
-https://me.pinecore.top/2024/10/08/Maya-quick-symmetry-tool/
+[Quick Help](https://me.pinecore.top/2024/10/08/Maya-quick-symmetry-tool/)
 
 ***Highlighted*** section will be preserved
