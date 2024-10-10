@@ -1,6 +1,9 @@
 # 快速对称工具
 import maya.cmds as cmds
 import maya
+
+global_center_edge=None
+
 def bake_custom_pivot():
     # 检查是否有对象被选择
     selected_objects = cmds.ls(selection=True)
@@ -43,6 +46,8 @@ def zeroAndSym(axis):
     cmds.select(firstEdge)
     cmds.symmetricModelling(topoSymmetry=True)
     edge = firstEdge
+    global global_center_edge
+    global_center_edge = edge
 
 def selection1():
     cmds.select(clear=True)
@@ -58,7 +63,10 @@ def symSelection():
 def bugSymSelection():
     cmds.symmetricModelling(topoSymmetry=False)
     maya.mel.eval('Symmetrize;')
-
+    global global_center_edge
+    cmds.evalDeferred('cmds.select("{}")'.format(global_center_edge))
+    # cmds.evalDeferred('mel.eval("select \\"{}\\"")'.format(global_center_edge))
+    # cmds.evalDeferred('dR_DoCmd("symmetrize")')
 def disableSymmetricModelling():
 
     cmds.symmetricModelling(topoSymmetry=False)
@@ -68,6 +76,7 @@ def create_qst_ui():
     width = 320
     height = 460
     row_height = 30  # 统一行高
+    centerEdge=''
     window_name = 'QuickSymmetryTool'
     if cmds.window(window_name, exists=True):
         cmds.deleteUI(window_name)
@@ -93,8 +102,8 @@ def create_qst_ui():
     cmds.text(label='Please select edges in the middle', height=row_height)
 
     # 第二步：一个按钮，根据选择的轴归零点
-    cmds.button(label='Zero and sym', height=row_height, command=lambda x: zeroAndSym(axis=cmds.optionMenu(axis_option_menu, query=True, value=True)))
-
+    cmds.button(label='Zero and sym', height=row_height, command=lambda _: zeroAndSym(axis=cmds.optionMenu(axis_option_menu, query=True, value=True)))
+    
 
     # 选择按钮说明
     cmds.text(label='Select the points\n(highlighted will be retained):', height=row_height)
